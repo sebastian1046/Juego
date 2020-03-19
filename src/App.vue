@@ -16,7 +16,7 @@
       .left.espacio 
         .line My mamma Lorenza told me that she and my pappa Andres were lucky because they were bought by the same man Mr. Nicolas, the richest man in town. They have worked for him for the last 20 years, so after some time they decided to have me, my name is Miguel and I was born as a slave. I grew up in the biggest ranch in town “El paraíso”. I have to say that our master is kind to us, he never punishes us when is not necessary and he gives us tasty food, he even allows us to go to the cabildos, they are like big parties where we gather to have a good time and sometimes to speak about the cause. But, lately I have realised that sometimes they abuse us when the only thing we do is serve them. Before, when I was a kid I thought that this was the best life I could have, now that I have grown up I think that we deserve better.
 
-    h3.preguntas(v-if="isCuestionarioMiguel") In order to unlock the following level, you will have to restate the sentences below, using no more than three words per answer. You must have at least 4 out of 6 correct answers. 
+    h3.preguntas(v-if="isCuestionarioMiguel") In order to unlock the following level, you will have to restate the sentences below, using no more than three words per answer. You must have at least 4 out of 7 correct answers. 
     .texto1_2(v-if="isTexto1_2") Question
       .left
         .line I. Some of the Africans that were in the ship did not arrive in Cartagena because they did not 
@@ -24,31 +24,32 @@
 
       .left 
         .line II. When Miguel’s parents arrived to mainland they were checked in order to determine if they
-        input.res(v-model="resMig2" type="text" placeholder="completar") 
+        input.res(v-model="resMig2" :class="{red: !isResMi2 && resMig2 != ''}" type="text" placeholder="completar") 
         .line so white people could establish their price
 
       .left 
         .line III. Lorenza felt happy when Mr. Nicolas bought her because he
-        input.res(v-model="resMig3" type="text" placeholder="completar")
+        input.res(v-model="resMig3"  :class="{red: !isResMi3 && resMig3 != ''}" type="text" placeholder="completar")
 
       .left
         .line IV. Since Miguel was born in
-        input.res(v-model="resMig4" type="text" placeholder="completar") 
+        input.res(v-model="resMig4" :class="{red: !isResMi4 && resMig4 != ''}"  type="text" placeholder="completar") 
         .line in 1606, he has been a
-        input.res(v-model="resMig4_1" type="text" placeholder="completar")
+        input.res(v-model="resMig4_1" :class="{red: !isResMi4_1 && resMig4_1 != ''}" type="text" placeholder="completar")
 
       .left
         .line V. Miguel thinks that Mr. Nicolas is
-        input.res(v-model="resMig5" type="text" placeholder="completar") 
+        input.res(v-model="resMig5" :class="{red: !isResMi5 && resMig5 != ''}" type="text" placeholder="completar") 
         .line because he hardly ever punishes him.
       
       .left
         .line VI. Miguel is not happy with his life, he thinks slaves should be
-        input.res(v-model="resMig6" type="text" placeholder="completar")
+        input.res(v-model="resMig6" :class="{red: !isResMi6 && resMig6 != ''}" type="text" placeholder="completar")
       
       .boton(@click="confirDat") Comprobar
-      
 
+    .img(v-if="isEjemplo")  
+      img(src='/static/Ejemplo.png'  height="1500px")
 </template>
 
 <script>
@@ -59,6 +60,8 @@ export default {
     return {
       isMiguel: true,
       isNicolas: true,
+      isEjemplo: false,
+
       isTexto1: false,
       isTexto1_1: false,
       isTexto1_2: false,
@@ -71,7 +74,14 @@ export default {
       resMig4_1: '', 
       resMig5: '',
       resMig6: '',
-      isResMi1: true
+      isResMi1: true,
+      isResMi2: true,
+      isResMi3: true,
+      isResMi4: true,
+      isResMi4_1: true,
+      isResMi5: true,
+      isResMi6: true,
+      contar: 0
     }
   },
 
@@ -89,13 +99,30 @@ export default {
       this.isTexto2 = true
     },
     confirDat(){
-      this.resMig2 = 'survive the journey'  
-      this.isResMi1 = this.resMig1 == 'had any flaws'   
-      this.resMig3 = 'also bought Andres' 
-      this.resMig4 = 'Cartagena-city of slaves'
-      this.resMig4_1 = 'slave'
-      this.resMig5 = 'a good master - benevolent - caring'
-      this.resMig6 = 'treated better'
+      if (this.isResMi1 =  this.resMig1 == 'survive the journey' ) {
+        this.contar++
+      }
+      if (this.isResMi2 = this.resMig2 == 'had any flaws') {
+        this.contar++
+      }
+      if (this.isResMi3 =  this.resMig3 == 'also bought Andres') {
+        this.contar++
+      }
+      if (this.isResMi4 =  this.resMig4 == 'Cartagena-city of slaves') {
+        this.contar++
+      }
+      if (this.isResMi4_1 =  this.resMig4_1 == 'slave') {
+        this.contar++
+      }   
+      if (this.isResMi5 =  this.resMig5 == 'a good master - benevolent - caring') {
+        this.contar++
+      }
+      if (this.isResMi6 =  this.resMig6 == 'treated better') {
+        this.contar++ 
+      }
+      if (this.contar >= 4) {
+        this.isEjemplo = true
+      }
     }
   }
 }
@@ -113,6 +140,7 @@ export default {
     margin 50px 80px
     display inline-block
     vertical-align middle
+    cursor pointer
 
   .texto1
     width 300px
