@@ -54,7 +54,7 @@
       .line You will read an infographic where you will find the description of black Cabildos and their importance for us. 
 
     .img(v-if="isEjemplo")  
-      img(src='/static/Ejemplo.png'  height="1500px")
+      img(src='/static/ejemplo.png'  height="1500px")
     
     .espacioSegundo.left(v-if="isEjemplo") MIGUEL:
       .letra The mayor of Cartagena has given you the opportunity to present him a letter exposing the reasons why you think the Cabildos should not be eliminated, you are allowed to use an informal register and can have access to Mr. Alonso Restrepo’s help, the mayor’s assistant. You have to write a letter with no more than 10 lines, use basic structures (present simple). Here there are some expressions that you can use in order to express yourself better.
@@ -115,7 +115,7 @@
       .line You will read an infographic where you will find the description of black Cabildos and their importance for us. 
 
     .img(v-if="isEjemploNico")  
-      img(src='/static/Ejemplo.png'  height="1500px")
+      img(src='/static/ejemplo.png'  height="1500px")
     
     .espacioSegundo.left(v-if="isEjemploNico") NICOLAS:
       .letra The mayor of Cartagena has decided to consider your request concerning the elimination of Cabildos in Cartagena; however, due to social pressure he was forced to accept Miguel’s appeal that tries to stop Cabildos from being eradicated. You will have to present a letter in which you draft the reasons why Cabildos should be eliminated.
@@ -228,28 +228,28 @@ export default {
       }
     },
   confirDatNic(){
-    if (this.isResNi1 =  this.resNic1 == 'The owner' ) {
+    if (this.isResNi1 =  this.resNic1 == 'the owner' ) {
         this.contar++
       }
       if (this.isResNi2 = this.resNic2 == 'buy slaves') {
         this.contar++
       }
-      if (this.isResNi3 =  this.resNic3 == 'astonished-amazed-shocked') {
+      if (this.isResNi3 =  (this.resNic3 == 'astonished' || this.resNic3 == 'amazed'|| this.resNic3 == 'shocked')) {
         this.contar++
       }
-      if (this.isResNi3_1 =  this.resNic3_1 == 'bad appearance-dirt-filthiness') {
+      if (this.isResNi3_1 = (this.resNic3_1 == 'bad appearance' || this.resNic3_1 == 'dirt' || this.resNic3_1 == 'filthiness')) {
         this.contar++
       }
-      if (this.isResNi4 =  this.resNic4 == 'flawless-in perfect conditions') {
+      if (this.isResNi4 = (this.resNic4 == 'flawless' || this.resNic4 == 'in perfect conditions')) {
         this.contar++
       } 
-      if (this.isResNi5 =  this.resNic5 == 'good master, good person') {
+      if (this.isResNi5 = (this.resNic5 == 'good master' || this.resNic5 == 'good person')) {
         this.contar++
       }
-      if (this.isResNi6 =  this.resNic6 == 'rebels-cocky-arrogant') {
+      if (this.isResNi6 = (this.resNic6 == 'rebels' || this.resNic6 == 'cocky' || this.resNic6 == 'arrogant')) {
         this.contar++ 
       }
-      if (this.isResNi6_1 =  this.resNic6_1 == 'rebels-cocky-arrogant') {
+      if (this.isResNi6_1 = (this.resNic6_1 == 'worried' || this.resNic6_1 == 'concerned' )) {
         this.contar++ 
       }
       if (this.contar >= 5) {
