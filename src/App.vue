@@ -51,7 +51,7 @@
       .left
         .line Now that you have pass the first level, everything gets a little bit more difficult. In order to pass this level and win the game you will have to pay close attention to what is next. 
     .left.letra(v-if="isEjemplo")
-      .line You will read an infographic where you will find the description of black Cabildos and their importance for us. 
+      .line You will read an infographic where you will find the description of black Cabildos and their filthy intentions.
 
     .img(v-if="isEjemplo")  
       img(src='/static/ejemplo.png'  height="1500px")
@@ -112,7 +112,7 @@
       .left
         .line Now that you have pass the first level, everything gets a little bit more difficult. In order to pass this level and win the game you will have to pay close attention to what is next. 
     .left.letra(v-if="isEjemploNico")
-      .line You will read an infographic where you will find the description of black Cabildos and their importance for us. 
+      .line You will read an infographic where you will find the description of black Cabildos and their filthy intentions.
 
     .img(v-if="isEjemploNico")  
       img(src='/static/ejemplo.png'  height="1500px")
